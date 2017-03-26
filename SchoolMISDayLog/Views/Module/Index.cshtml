@@ -1,0 +1,62 @@
+﻿@using SchoolMISDayLog.Models;
+@model List<SchoolMISDayLog.Models.Module>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<a href="@Url.Action("Create")" class="btn btn-info">Add New Here</a>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('[data-action=Delete]').click(function () {
+
+                if (confirm("Are you sure you want to delete this")) {
+                    $.post('@Url.Action("Delete")' + '?id=' + $(this).attr('data-id'), function (resp) {
+                        if (resp.Issuccess === true) {
+                            window.location = window.location;
+                        }
+                        else {
+                            alert("error");
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+}
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Module-Name
+                </th>
+                <th>
+
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (Module m in Model)
+            {
+                <tr>
+                    <td>@m.ModuleName</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = m.ModuleId })</td>
+                    <!-- <td>@Html.ActionLink("Delete", "Delete", new { id = m.ModuleId })</td>--> 
+                 
+                    <td><a data-action="Delete" data-id="@m.ModuleId" href="javascript:void()">Delete</a></td>
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
