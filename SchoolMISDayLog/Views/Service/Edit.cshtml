@@ -1,0 +1,26 @@
+﻿@model SchoolMISDayLog.Models.Service
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    {
+    <div class="form-horizontal">
+        <h3>please edit your module name</h3><hr/>
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model=>model.ServiceId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceName, new { @class="control-label col-md=2"})
+            <br/>
+            <div class="col-md-10">
+                @Html.EditorFor(model=>model.ServiceName)
+                @Html.ValidationMessageFor(model => model.ServiceName)
+                <input type="submit" value="Modify here" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+    }
+}

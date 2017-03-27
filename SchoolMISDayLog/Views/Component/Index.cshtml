@@ -1,11 +1,12 @@
 ﻿@using SchoolMISDayLog.Models
-@model IEnumerable<SchoolMISDayLog.Models.Module>
+@model  IEnumerable<SchoolMISDayLog.Models.Component>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<a href="@Url.Action("Create")" class="btn btn-info">Add New Here</a>
+
+<a href="@Url.Action("Create")" class="btn btn-info">Add new Here</a>
 @section scripts{
     <script type="text/javascript">
         $(function () {
@@ -24,42 +25,38 @@
             });
 
         });
-    </script>
-}
-
+</script>
+    }
 <div>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>
-                    Module-Name
+                    Component-Name
                 </th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Developer</th>
+                <th>Module</th>
+                <th>Status</th>
+                <th>Editaction</th>
+                <th>Deleteaction</th>
             </tr>
-
         </thead>
         <tbody>
-
-            @foreach (Module m in Model)
+            @foreach (var c in Model)
             {
                 <tr>
-                    <td>@m.ModuleName</td>
-
-
-
-
-                    <td>@Html.ActionLink("Edit", "Edit", new { id = m.ModuleId })</td>
-                    <td><a data-action="Delete" data-id="@m.ModuleId">Delete</a></td>
-                    <td></td>
+                    <td>@c.ComponentName</td>
+                   
+                    
+                    <td>@(c.Developer!=null?c.Developer.DeveloperName:"")</td>
+                    <td>@(c.Module != null ? c.Module.ModuleName : "")</td>
+                    <td>@c.Status</td>
+                    <td>@Html.ActionLink("Edit","Edit",new { id = c.ComponentId })</td>
+                    <td><a data-action="Delete" data-id="@c.ComponentId">Delete</a></td>
+                    
                 </tr>
 
             }
-
         </tbody>
-
     </table>
 </div>
-
-
-

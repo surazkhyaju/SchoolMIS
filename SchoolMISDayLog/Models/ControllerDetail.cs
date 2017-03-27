@@ -22,10 +22,10 @@ namespace SchoolMISDayLog.Models
     
         public int ControllerId { get; set; }
         public string ControllerName { get; set; }
-        public int ComponentId { get; set; }
-        public int CreatedByUserId { get; set; }
+        public Nullable<int> ComponentId { get; set; }
+        public Nullable<int> CreatedByUserId { get; set; }
         public string CreatedByUserName { get; set; }
-        public System.DateTime CreatedByUSerDate { get; set; }
+        public Nullable<System.DateTime> CreatedByUSerDate { get; set; }
     
         public virtual Component Component { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

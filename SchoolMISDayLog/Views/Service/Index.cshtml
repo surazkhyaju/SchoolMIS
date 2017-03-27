@@ -1,12 +1,13 @@
-﻿@using SchoolMISDayLog.Models
-@model IEnumerable<SchoolMISDayLog.Models.Module>
+﻿@using SchoolMISDayLog.Models;
+@model List<SchoolMISDayLog.Models.Service>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<a href="@Url.Action("Create")" class="btn btn-info">Add New Here</a>
+<a href="@Url.Action("Create")" class="btn btn-info">Add New Service info here</a>
 @section scripts{
+   
     <script type="text/javascript">
         $(function () {
             $('[data-action=Delete]').click(function () {
@@ -25,41 +26,27 @@
 
         });
     </script>
-}
-
+    }
 <div>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>
-                    Module-Name
+                    Service
                 </th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-
         </thead>
         <tbody>
-
-            @foreach (Module m in Model)
+            @foreach (Service s in Model)
             {
                 <tr>
-                    <td>@m.ModuleName</td>
-
-
-
-
-                    <td>@Html.ActionLink("Edit", "Edit", new { id = m.ModuleId })</td>
-                    <td><a data-action="Delete" data-id="@m.ModuleId">Delete</a></td>
-                    <td></td>
+                    <td>@s.ServiceName</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = s.ServiceId })</td>
+                    <td><a data-action="Delete" data-id="@s.ServiceId">Delete</a></td>
                 </tr>
-
             }
-
         </tbody>
-
     </table>
 </div>
-
-
-

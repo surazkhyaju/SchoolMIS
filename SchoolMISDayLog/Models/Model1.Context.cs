@@ -13,10 +13,10 @@ namespace SchoolMISDayLog.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DailyreportEntities : DbContext
+    public partial class DailyreportEntities1 : DbContext
     {
-        public DailyreportEntities()
-            : base("name=DailyreportEntities")
+        public DailyreportEntities1()
+            : base("name=DailyreportEntities1")
         {
         }
     
@@ -26,7 +26,6 @@ namespace SchoolMISDayLog.Models
         }
     
         public virtual DbSet<Component> Components { get; set; }
-        public virtual DbSet<ComponentStatusHistory> ComponentStatusHistories { get; set; }
         public virtual DbSet<ControllerDetail> ControllerDetails { get; set; }
         public virtual DbSet<DailyDeveloperTaskLog> DailyDeveloperTaskLogs { get; set; }
         public virtual DbSet<Developer> Developers { get; set; }

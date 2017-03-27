@@ -16,17 +16,17 @@ namespace SchoolMISDayLog.Models
     {
         public int DailyDeveloperTaskLogId { get; set; }
         public string Task { get; set; }
-        public int ControllerId { get; set; }
-        public int ServiceId { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<int> ControllerId { get; set; }
+        public Nullable<int> ServiceId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public System.TimeSpan TimeStart { get; set; }
         public System.TimeSpan TimeEnd { get; set; }
         public string JSFileName { get; set; }
         public string ViewName { get; set; }
         public string Remark { get; set; }
-        public int CreatedByUserId { get; set; }
+        public Nullable<int> CreatedByUserId { get; set; }
         public string CreatedByUserName { get; set; }
-        public System.DateTime CreatedByUSerDate { get; set; }
+        public Nullable<System.DateTime> CreatedByUSerDate { get; set; }
     
         public virtual ControllerDetail ControllerDetail { get; set; }
         public virtual Service Service { get; set; }
