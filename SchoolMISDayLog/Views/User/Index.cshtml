@@ -1,0 +1,53 @@
+﻿@using SchoolMISDayLog.Models
+@model IEnumerable<SchoolMISDayLog.Models.User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<a href="@Url.Action("Create")" class="btn btn-info">Add new here</a>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('[data-action=Delete]').click(function () {
+
+                if (confirm("Are you sure you want to delete this")) {
+                    $.post('@Url.Action("Delete")' + '?id=' + $(this).attr('data-id'), function (resp) {
+                        if (resp.Issuccess === true) {
+                            window.location = window.location;
+                        }
+                        else {
+                            alert("error");
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+}
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>User-Name</th>
+                <th>Password</th>
+                <th>User-type</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.UserName</td>
+                    <td>@u.Password</td>
+                    <td>@u.UserType</td>
+                    <td>@Html.ActionLink("Edit","Edit",new { id=u.UserId })</td>
+                    <td><a data-action="Delete" data-id="@u.UserId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+</div>

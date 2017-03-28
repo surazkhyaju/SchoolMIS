@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5ee7d4a39581486abb7f47b421dc704f" Name="Diagram1">
-        <EntityTypeShape EntityType="DailyreportModel.Component" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.ControllerDetail" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.DailyDeveloperTaskLog" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.Developer" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.Module" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.Service" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="DailyreportModel.User" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <AssociationConnector Association="DailyreportModel.FK_Component_Developer" ManuallyRouted="false" />
-        <AssociationConnector Association="DailyreportModel.FK_Component_Module" ManuallyRouted="false" />
-        <AssociationConnector Association="DailyreportModel.FK_Controller_Component" ManuallyRouted="false" />
-        <AssociationConnector Association="DailyreportModel.FK_DailyDeveloperTaskLog_Controller" ManuallyRouted="false" />
-        <AssociationConnector Association="DailyreportModel.FK_DailyDeveloperTaskLog_Service" ManuallyRouted="false" />
-        <AssociationConnector Association="DailyreportModel.FK_User_Developer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DailyreportModel.Component" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="DailyreportModel.ControllerDetail" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="DailyreportModel.DailyDeveloperTaskLog" Width="1.5" PointX="7.5" PointY="3.875" />
+        <EntityTypeShape EntityType="DailyreportModel.Developer" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="DailyreportModel.Module" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DailyreportModel.Service" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="DailyreportModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9" />
+        <EntityTypeShape EntityType="DailyreportModel.User" Width="1.5" PointX="3" PointY="8.625" />
+        <AssociationConnector Association="DailyreportModel.FK_Component_Developer" />
+        <AssociationConnector Association="DailyreportModel.FK_Component_Module" />
+        <AssociationConnector Association="DailyreportModel.FK_Controller_Component" />
+        <AssociationConnector Association="DailyreportModel.FK_DailyDeveloperTaskLog_Controller" />
+        <AssociationConnector Association="DailyreportModel.FK_DailyDeveloperTaskLog_Service" />
+        <AssociationConnector Association="DailyreportModel.FK_User_Developer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

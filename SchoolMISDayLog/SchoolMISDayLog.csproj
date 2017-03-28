@@ -159,10 +159,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ComponentController.cs" />
-    <Compile Include="Controllers\ComponentStatusHistoryController.cs" />
+    <Compile Include="Controllers\ControllerDetailsController.cs" />
+    <Compile Include="Controllers\DailyDeveloperTaskLogController.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +199,7 @@
     <Compile Include="Models\Module.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partial\Component.cs" />
     <Compile Include="Models\Service.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -272,6 +276,17 @@
     <Content Include="Views\Component\Index.cshtml" />
     <Content Include="Views\Component\Delete.cshtml" />
     <Content Include="Views\Component\Edit.cshtml" />
+    <Content Include="Views\Developer\Index.cshtml" />
+    <Content Include="Views\Developer\Create.cshtml" />
+    <Content Include="Views\Developer\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\ControllerDetails\Index.cshtml" />
+    <Content Include="Views\ControllerDetails\Create.cshtml" />
+    <Content Include="Views\ControllerDetails\Edit.cshtml" />
+    <Content Include="Views\DailyDeveloperTaskLog\Index.cshtml" />
+    <Content Include="Views\DailyDeveloperTaskLog\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

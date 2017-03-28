@@ -1,0 +1,69 @@
+﻿@using SchoolMISDayLog.Models
+@model IEnumerable<SchoolMISDayLog.Models.DailyDeveloperTaskLog>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="@Url.Action("Create")" class="btn btn-info">add new here</a>
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('[data-action=Delete]').click(function () {
+                if (confirm("are you sure ")) {
+                    $.post('@Url.Action("Delete")' + '?id=' + $(this).attr('data-id'), function (resp) {
+                        if (resp.Issucess == true) {
+                            window.location = window.location;
+
+                        } else {
+                            alert("error");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    }
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>task</th>
+                <th>Date</th>
+                <th>timestart</th>
+                <th>timeend</th>
+                <th>jsfilename</th>
+                <th>viewName</th>
+                <th>remarks</th>
+                <th>ControllerName</th>
+                <th>Service-Name</th>
+                <th>Edit</th>
+                <th>delete</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dd in Model)
+            {
+                <tr>
+                <td>
+                    @(dd.Task)
+                    
+                </td>
+                    <td>@(dd.Date)</td>
+                    <td>@(dd.TimeStart)</td>
+                    <td>@(dd.TimeEnd)</td>
+                    <td>@(dd.JSFileName)</td>
+                    <td>@(dd.ViewName)</td>
+                    <td>@(dd.Remark)</td>
+                    <td>@(dd.ControllerDetail!=null?dd.ControllerDetail.ControllerName:"")</td>
+                    <td>@(dd.Service!=null?dd.Service.ServiceName:"")</td>
+                    <td>@Html.ActionLink("Edit","Edit",new { id = dd.DailyDeveloperTaskLogId })</td>
+                    <td><a data-action="delete" data-id="@dd.DailyDeveloperTaskLogId">delete</a></td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

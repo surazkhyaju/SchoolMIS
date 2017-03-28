@@ -3,97 +3,74 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 
 namespace SchoolMISDayLog.Controllers
-
 {
-    
-    public class ModuleController : Controller
+    public class DeveloperController : Controller
     {
         private readonly DailyreportEntities1 _context;
-
-       // public string ModuleController1 { get; private set; }
-
-        public ModuleController()
+        //  public string DeveloperController { get; private set; }
+        public DeveloperController()
         {
             _context = new DailyreportEntities1();
         }
-        // GET: Module
+        // GET: Developer
         public ActionResult Index()
         {
-            var data = _context.Modules.ToList();
+             var data = _context.Developers.ToList();
             return View(data);
         }
         [HttpGet]
         public ActionResult Create()
         {
             return View();
-
         }
         [HttpPost]
-        public ActionResult Create(Module postModule)
+        public ActionResult Create(Developer postDeveloper)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-
-
-                using (DailyreportEntities1 dre = new DailyreportEntities1())
-                {
-                    postModule.CreatedByUserId = 1;
-                    postModule.CreatedByUSerDate = DateTime.Now;
-                    postModule.CreatedByUserName = "suraz";
-                    dre.Entry(postModule).State = EntityState.Added;
-                    dre.SaveChanges();
-                }
-
-
+                postDeveloper.CreatedByUserId = 1;
+                postDeveloper.CreatedByUserName = "suraz";
+                postDeveloper.CreatedByUSerDate = DateTime.Now;
+                _context.Entry(postDeveloper).State = EntityState.Added; ;
+                _context.SaveChanges();
             }
-
             return RedirectToAction("Index");
         }
-
-
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = _context.Modules.FirstOrDefault(x => x.ModuleId == id);
+            var model = _context.Developers.FirstOrDefault(x => x.DeveloperId == id);
             return View("Edit", model);
         }
         [HttpPost]
-        public ActionResult Edit(Module model)
-
+        public ActionResult Edit(Developer model)
         {
             if (ModelState.IsValid)
             {
                 using (DailyreportEntities1 dre = new DailyreportEntities1())
                 {
                     model.CreatedByUserId = 1;
+                    model.CreatedByUserName = "Suraz";
                     model.CreatedByUSerDate = DateTime.Now;
-                    model.CreatedByUserName = "suraz";
-                    model.Components = model.Components;
                     dre.Entry(model).State = EntityState.Modified;
                     dre.SaveChanges();
                     return RedirectToAction("Index");
-
                 }
-
             }
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var modules = _context.Modules.FirstOrDefault(x => x.ModuleId == id);
-            _context.Modules.Remove(modules);
+            var developer = _context.Developers.FirstOrDefault(x => x.DeveloperId == id);
+            _context.Developers.Remove(developer);
             _context.SaveChanges();
             return Json(new { Issuccess = true });
-
         }
 
-
     }
-    
 }
