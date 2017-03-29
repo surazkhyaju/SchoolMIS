@@ -1,0 +1,88 @@
+﻿@model SchoolMISDayLog.Models.DailyDeveloperTaskLog
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h2>please edit your log here</h2><hr/>
+        @Html.ValidationSummary(true);
+        @Html.HiddenFor(model=>model.DailyDeveloperTaskLogId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.ControllerId, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.DropDownListFor(m => m.ControllerId, ViewBag.ControllerDetails as SelectList, "Select Controller", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ControllerId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Service, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.DropDownListFor(m => m.ServiceId, ViewBag.Services as SelectList, "Select Services", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ServiceId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Task, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Task, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Task)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Date, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Date)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.TimeStart, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.TimeStart, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TimeStart)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.TimeEnd, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.TimeEnd, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TimeEnd)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.JSFileName, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.JSFileName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.JSFileName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ViewName, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.ViewName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ViewName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Remark, new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Remark, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Remark)
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+            </div>
+
+        </div>
+}
+

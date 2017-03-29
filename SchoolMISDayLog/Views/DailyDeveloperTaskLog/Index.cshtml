@@ -24,7 +24,7 @@
             });
         });
     </script>
-    }
+}
 <div>
     <table class="table table-bordered">
         <thead>
@@ -40,7 +40,7 @@
                 <th>Service-Name</th>
                 <th>Edit</th>
                 <th>delete</th>
-                
+
 
             </tr>
         </thead>
@@ -48,21 +48,18 @@
             @foreach (var dd in Model)
             {
                 <tr>
-                <td>
-                    @(dd.Task)
-                    
-                </td>
-                    <td>@(dd.Date)</td>
-                    <td>@(dd.TimeStart)</td>
-                    <td>@(dd.TimeEnd)</td>
-                    <td>@(dd.JSFileName)</td>
-                    <td>@(dd.ViewName)</td>
-                    <td>@(dd.Remark)</td>
-                    <td>@(dd.ControllerDetail!=null?dd.ControllerDetail.ControllerName:"")</td>
-                    <td>@(dd.Service!=null?dd.Service.ServiceName:"")</td>
-                    <td>@Html.ActionLink("Edit","Edit",new { id = dd.DailyDeveloperTaskLogId })</td>
-                    <td><a data-action="delete" data-id="@dd.DailyDeveloperTaskLogId">delete</a></td>
-                    </tr>
+                    <td>@dd.Task</td>
+                    <td>@dd.Date</td>
+                    <td>@dd.TimeStart</td>
+                    <td>@dd.TimeEnd</td>
+                    <td>@dd.JSFileName</td>
+                    <td>@dd.ViewName</td>
+                    <td>@dd.Remark</td>
+                    <td>@(dd.ControllerDetail != null ? dd.ControllerDetail.ControllerName : "")</td>
+                    <td>@(dd.Service != null ? dd.Service.ServiceName : "")</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = dd.DailyDeveloperTaskLogId })</td>
+                    <td><a data-action="Delete" data-id="@dd.DailyDeveloperTaskLogId">Delete</a></td>
+                </tr>
             }
         </tbody>
     </table>
