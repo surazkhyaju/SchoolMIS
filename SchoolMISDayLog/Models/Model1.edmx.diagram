@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="DailyreportModel.Service" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="DailyreportModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9" />
         <EntityTypeShape EntityType="DailyreportModel.User" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="DailyreportModel.FinalReportLog" Width="1.5" PointX="7.75" PointY="9" />
         <AssociationConnector Association="DailyreportModel.FK_Component_Developer" />
         <AssociationConnector Association="DailyreportModel.FK_Component_Module" />
         <AssociationConnector Association="DailyreportModel.FK_Controller_Component" />

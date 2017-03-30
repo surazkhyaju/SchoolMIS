@@ -4,6 +4,12 @@
 }
 
 <h2>Create</h2>
+@if (ViewBag.message != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.message
+    </div> 
+}
 @using (Html.BeginForm("Create", "DailyDeveloperTaskLog", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
@@ -78,7 +84,7 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-9">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-default">Cancel</button>
+                
             </div>
         </div>
     </div>

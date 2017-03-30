@@ -1,18 +1,18 @@
-﻿using SchoolMISDayLog.Models;
+﻿using SchoolMISDayLog.Helper;
+using SchoolMISDayLog.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SchoolMISDayLog.Controllers
 {
-    public class ComponentController : Controller
+    public class ComponentController : BaseController
     {
         private readonly DailyreportEntities1 _context;
 
-        public string ModuleController1 { get; private set; }
+        
+        
 
         public ComponentController()
         {
@@ -54,18 +54,31 @@ namespace SchoolMISDayLog.Controllers
                     d.Entry(postComponent).State = EntityState.Added;
                     d.SaveChanges();
                 }
-
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                ViewBag.Message = ModelState.GetModelStateErrors();                
+
+                return View("Create", postComponent);
+            }
+
+
         }
+
+
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            ViewBag.Modules = new SelectList(_context.Modules.ToList(), "ModuleId", "ModuleName");
             ViewBag.Developers = new SelectList(_context.Developers.ToList(), "DeveloperId", "DeveloperName");
+            ViewBag.Modules = new SelectList(_context.Modules.ToList(), "ModuleId", "ModuleName");
             var model = _context.Components.FirstOrDefault(x => x.ComponentId == id);
+           
             return View("Edit", model);
         }
+
+
+
         [HttpPost]
         public ActionResult Edit(Component comp)
         {
@@ -96,4 +109,5 @@ namespace SchoolMISDayLog.Controllers
 
     }
 }
+
 

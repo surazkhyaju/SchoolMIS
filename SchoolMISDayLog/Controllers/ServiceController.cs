@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using SchoolMISDayLog.Models;
 using System.Data.Entity;
+using SchoolMISDayLog.Helper;
 
 namespace SchoolMISDayLog.Controllers
 {
 
 
-    public class ServiceController : Controller
+    public class ServiceController : BaseController
     {
         private readonly DailyreportEntities1 _context;
         public ServiceController()
@@ -41,8 +42,16 @@ namespace SchoolMISDayLog.Controllers
                 _context.SaveChanges();
 
 
+
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                ViewBag.Message = ModelState.GetModelStateErrors();
+
+
+                return View("Create", service);
+            }
 
 
 

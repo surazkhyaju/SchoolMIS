@@ -1,4 +1,5 @@
-﻿using SchoolMISDayLog.Models;
+﻿using SchoolMISDayLog.Helper;
+using SchoolMISDayLog.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace SchoolMISDayLog.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private readonly DailyreportEntities1 _context;
         public UserController()
@@ -30,7 +31,7 @@ namespace SchoolMISDayLog.Controllers
         [HttpPost]
         public ActionResult Create(User postUser)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 using (DailyreportEntities1 d = new DailyreportEntities1())
                 {
@@ -38,8 +39,17 @@ namespace SchoolMISDayLog.Controllers
                     d.SaveChanges();
                 }
 
+
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                ViewBag.Message = ModelState.GetModelStateErrors();
+                ViewBag.Developers = new SelectList(_context.Developers.ToList(), "DeveloperId", "DeveloperName");
+               // ViewBag.Services = new SelectList(_context.Services.ToList(), "ServiceId ", "ServiceName");
+
+                return View("Create", postUser);
+            }
         }
         [HttpGet]
         public ActionResult Edit(int id)

@@ -1,4 +1,5 @@
-﻿using SchoolMISDayLog.Models;
+﻿using SchoolMISDayLog.Helper;
+using SchoolMISDayLog.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +12,7 @@ namespace SchoolMISDayLog.Controllers
 
 {
     
-    public class ModuleController : Controller
+    public class ModuleController : BaseController
     {
         private readonly DailyreportEntities1 _context;
 
@@ -50,9 +51,18 @@ namespace SchoolMISDayLog.Controllers
                 }
 
 
+
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Message = ModelState.GetModelStateErrors();
+;
+
+                return View("Create", postModule);
             }
 
-            return RedirectToAction("Index");
         }
 
 

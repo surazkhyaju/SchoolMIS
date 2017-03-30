@@ -5,10 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SchoolMISDayLog.Helper;
 
 namespace SchoolMISDayLog.Controllers
 {
-    public class DailyDeveloperTaskLogController : Controller
+    public class DailyDeveloperTaskLogController : BaseController
     {
         private readonly DailyreportEntities1 _context;
         public DailyDeveloperTaskLogController()
@@ -43,8 +44,16 @@ namespace SchoolMISDayLog.Controllers
                     d.SaveChanges();
                 }
 
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                ViewBag.Message = ModelState.GetModelStateErrors();
+                ViewBag.ControllerDetails = new SelectList(_context.ControllerDetails.ToList(), "ControllerId", "ControllerName");
+                ViewBag.Services = new SelectList(_context.Services.ToList(), "ServiceId ", "ServiceName");
+
+                return View("Create", postDaily);
+            }
         }
         [HttpGet]
         public ActionResult Edit(int id)
@@ -52,7 +61,7 @@ namespace SchoolMISDayLog.Controllers
             ViewBag.ControllerDetails = new SelectList(_context.ControllerDetails.ToList(), "ControllerId", "controllerName");
             ViewBag.Services = new SelectList(_context.Services.ToList(), "ServiceId", "serviceName");
             var model = _context.DailyDeveloperTaskLogs.FirstOrDefault(x => x.DailyDeveloperTaskLogId == id);
-            return View("Edit",model);
+            return View("Edit", model);
         }
         [HttpPost]
         public ActionResult Edit(DailyDeveloperTaskLog postLog)
@@ -73,7 +82,7 @@ namespace SchoolMISDayLog.Controllers
             _context.SaveChanges();
             return Json(new { Issuccess = true });
         }
-           
-        }
 
     }
+
+}

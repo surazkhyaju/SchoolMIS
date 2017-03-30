@@ -4,6 +4,12 @@
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (ViewBag.message != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.message
+    </div>
+}
 @using (Html.BeginForm("Create", "Service", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
