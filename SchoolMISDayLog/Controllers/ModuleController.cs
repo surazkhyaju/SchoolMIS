@@ -96,8 +96,8 @@ namespace SchoolMISDayLog.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            var modules = _context.Modules.FirstOrDefault(x => x.ModuleId == id);
-            _context.Modules.Remove(modules);
+            var model = _context.Modules.FirstOrDefault(x => x.ModuleId == id);
+            _context.Modules.Remove(model);
             _context.SaveChanges();
             return Json(new { Issuccess = true });
 

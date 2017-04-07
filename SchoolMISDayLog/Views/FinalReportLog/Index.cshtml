@@ -1,5 +1,5 @@
 ﻿@using SchoolMISDayLog.Models
-@model IEnumerable<SchoolMISDayLog.Models.FinalReportLog>
+@model IEnumerable<SchoolMISDayLog.Models.View2>
 @{
     ViewBag.Title = "Index";
 }
@@ -15,7 +15,7 @@
                 <th>Developer</th>
                 <th>Controller-Name</th>
                 <th>Service-Name</th>
-                <th>JS File Name</th>
+               
                 <th>Time-Start</th>
                 <th>Time-End</th>
                 <th>Status</th>
@@ -31,7 +31,7 @@
                     <td>@fr.DeveloperName</td>
                     <td>@fr.ControllerName</td>
                     <td>@fr.ServiceName</td>
-                    <td>@fr.JSFileName</td>
+                    
                     <td>@fr.TimeStart</td>
                     <td>@fr.TimeEnd</td>
                     <td>@fr.Status</td>

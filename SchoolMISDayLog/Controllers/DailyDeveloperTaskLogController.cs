@@ -73,6 +73,7 @@ namespace SchoolMISDayLog.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
+            
         }
         [HttpPost]
         public ActionResult Delete(int id)

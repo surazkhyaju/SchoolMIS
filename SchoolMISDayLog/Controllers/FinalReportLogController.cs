@@ -29,7 +29,7 @@ namespace SchoolMISDayLog.Controllers
             ViewBag.Services = new SelectList(_context.Services.ToList());
             ViewBag.Users = new SelectList(_context.Users.ToList());
 
-            var data = _context.FinalReportLogs.ToList();
+            var data = _context.View2.ToList();
             return View(data);
         }
     }
